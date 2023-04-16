@@ -1,0 +1,29 @@
+2023.04.02 23:29:13 INFO  Started: Metals version 0.11.11 in workspace 'E:\testshare\hotel\hotel-app' for client Visual Studio Code 1.77.0.
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/C:/Users/Admin/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/com/outr/scribe-slf4j_2.13/3.11.0/scribe-slf4j_2.13-3.11.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2023.04.02 23:29:14 INFO  time: initialize in 0.47s
+2023.04.02 23:29:15 WARN  Build server is not auto-connectable.
+2023.04.02 23:29:15 WARN  no build tool detected in workspace 'E:\testshare\hotel\hotel-app'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2023.04.02 23:29:15 WARN  no build target for: C:\Users\Admin\Downloads\BigramCorpus.scala
+2023.04.02 23:29:19 INFO  no build target found for C:\Users\Admin\Downloads\BigramCorpus.scala. Using presentation compiler with project's scala-library version: 3.2.2
+2023.04.02 23:29:21 INFO  time: code lens generation in 6.22s
+2023.04.03 00:00:28 INFO  Shutting down server
+2023.04.03 00:00:28 INFO  shutting down Metals
+2023.04.03 00:00:28 INFO  Exiting server
+2023.04.06 22:46:57 INFO  Started: Metals version 0.11.11 in workspace 'E:\testshare\hotel\hotel-app' for client Visual Studio Code 1.77.1.
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/C:/Users/Admin/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/com/outr/scribe-slf4j_2.13/3.11.0/scribe-slf4j_2.13-3.11.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2023.04.06 22:46:58 INFO  time: initialize in 0.44s
+2023.04.06 22:46:59 WARN  Build server is not auto-connectable.
+2023.04.06 22:46:59 WARN  no build tool detected in workspace 'E:\testshare\hotel\hotel-app'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2023.04.06 23:50:04 INFO  Shutting down server
+2023.04.06 23:50:04 INFO  shutting down Metals
+2023.04.06 23:50:04 INFO  Exiting server
