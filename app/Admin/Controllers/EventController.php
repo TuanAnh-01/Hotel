@@ -78,7 +78,7 @@ class EventController extends AdminController
     protected function form()
     {
         $form = new Form(new Event());
-
+        $form->select('status', __('Status'))->options(['' => 'Status','Active' => 'Active', 'Inactive' => 'Inactive']);
         $form->text('name', __('Name'));
         $form->image('images', __('Images'))->uniqueName();;
         $form->text('title', __('Title'));
@@ -88,7 +88,7 @@ class EventController extends AdminController
         $form->number('Price', __('Price'));
         $form->ckeditor('content', __('Content'));
         $form->date('organization', __('Organization'))->default(date('Y-m-d'));
-        $form->select('status', __('Status'))->options(['' => 'Status','Active' => 'Active', 'Inactive' => 'Inactive']);
+     
 
         return $form;
     }

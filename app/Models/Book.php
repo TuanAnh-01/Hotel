@@ -22,6 +22,8 @@ class Book extends Model
         'status'
     ];
 
+    
+
 
     // public static function boot()
     // {

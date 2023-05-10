@@ -76,6 +76,7 @@ class BookeventController extends AdminController
     protected function form()
     {
         $form = new Form(new Bookevent());
+        $form->select('paymentstatus', __('Paymentstatus'))->options(['' => 'Payment','Paid' => 'Paid', 'Wait for confirmation' => 'Wait for confirmation']);
 
         $form->text('name', __('Name'));
         $form->email('email', __('Email'));
@@ -83,8 +84,7 @@ class BookeventController extends AdminController
         $form->text('Price', __('Price'));
         $form->date('start', __('Start'))->default(date('Y-m-d'));
         $form->date('end', __('End'))->default(date('Y-m-d'));
-        $form->select('paymentstatus', __('Paymentstatus'))->options(['' => 'Payment','Paid' => 'Paid', 'Wait for confirmation' => 'Wait for confirmation']);
-
+      
         return $form;
     }
 }

@@ -5,7 +5,7 @@ use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Auth;
 class EventController extends Controller
 {
     /**
@@ -50,34 +50,12 @@ class EventController extends Controller
         
     }
 
-    public function createComment(Request $request) {
-        $update = Carbon::now();
-
-        DB::table('comment')->insert([
-            'name' => $request->name_comment,
-            'content' => $request->comment,
-            'updated_at' => $update,
-            'id_comment' => session('id')
-            
-        ]);
-
-        $sessions = DB::table('sessions')->value('user_id');
-        $showevent = DB::table('event')->find(session('id'));
-        $email = DB::table('users')->find($sessions);
-        
-        $comment = DB::table('comment')->where('id_comment', '=', session('id'))->orderBy('id', 'desc')->paginate(4);
-        
-        $count = DB::table('comment')->where('id_comment', '=', session('id'))->count();
-
-        
-        return view('Showevent')->with('showevent',$showevent)->with('email',$email)->with('comment',$comment)->with('count',$count);
-
-    }
+    
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store()
     {
         //
         $event = Event::findOrFail(session('room_id'));
@@ -112,14 +90,35 @@ class EventController extends Controller
         $post->increment('views_count');
         $post->save();
         session()->put('id', $id);
-        $sessions = DB::table('sessions')->value('user_id');
         $showevent = DB::table('event')->find($id);
-        $email = DB::table('users')->find($sessions);
-
         $comment = DB::table('comment')->where('id_comment', '=', session('id'))->orderBy('id', 'desc')->paginate(4);
-        
         $count = DB::table('comment')->where('id_comment', '=', session('id'))->count();
-        return view('Showevent')->with('showevent',$showevent)->with('email',$email)->with('comment',$comment)->with('count',$count);
+        return view('Showevent')->with('showevent',$showevent)->with('comment',$comment)->with('count',$count);
+    }
+
+    public function createComment(Request $request) {
+        $update = Carbon::now();
+        if(isset(Auth::user()->profile_photo_path)){
+            DB::table('comment')->insert([
+                'name' => $request->name_comment,
+                'content' => $request->comment,
+                'images' => Auth::user()->profile_photo_path ,
+                'updated_at' => $update,
+                'id_comment' => session('id')
+                
+            ]);
+           return redirect()->back();
+        }
+
+        DB::table('comment')->insert([
+            'name' => $request->name_comment,
+            'content' => $request->comment,
+            'updated_at' => $update,
+            'id_comment' => session('id')
+            
+        ]);
+       return redirect()->back();
+        
     }
 
     /**

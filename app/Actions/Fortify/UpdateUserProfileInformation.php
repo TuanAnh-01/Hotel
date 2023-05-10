@@ -2,8 +2,12 @@
 
 namespace App\Actions\Fortify;
 
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\DB;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
@@ -15,7 +19,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      *
      * @param  array<string, string>  $input
      */
-    public function update(User $user, array $input): void
+    public function update(User $user, array $input ): void
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
@@ -26,6 +30,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 
         if (isset($input['photo'])) {
             $user->updateProfilePhoto($input['photo']);
+            $updateCmt = new HomeController;
+            $updateCmt->updateCmt($input['name']);
         }
 
         if ($input['email'] !== $user->email &&

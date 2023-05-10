@@ -251,7 +251,7 @@
                                                           <div class="row">
                                                               <div class="col-md-6">
                                                                   <div class="form-group input-not-empty">
-                                                                      <input class="form-control" type="text" name="email" value="{{$email->email}}" readonly>
+                                                                      <input class="form-control" type="text" name="email" value=" {{ Auth::user()->email }}" readonly>
                                                                       {{-- <x-input id="email" type="email" class="form-control" wire:model.defer="state.email" autocomplete="username" /> --}}
                                                                       <span class="form-label">Email</span>
                                                                   </div>

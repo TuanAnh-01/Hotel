@@ -25,12 +25,13 @@ class FaceBookController extends Controller
   try {
        $user = Socialite::driver('facebook')->user();
 
-       
        $saveUser = User::updateOrCreate([
            'facebook_id' => $user->getId(),
        ],[
            'name' => $user->getName(),
            'email' => $user->getEmail(),
+           'profile_photo_path' => $user->getAvatar(),
+           
            'phone' => '0123456',
            'password' => Hash::make($user->getName().'@'.$user->getId())
             ]);

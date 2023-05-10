@@ -70,6 +70,7 @@ class BookingController extends AdminController
     protected function form()
     {
         $form = new Form(new Booking());
+        $form->select('status', __('Status'))->options(['' => 'Status','Active' => 'Active', 'Inactive' => 'Inactive']);
 
         $form->text('name', __('Name'));
         $form->image('images', __('Images'))->uniqueName();
@@ -79,8 +80,7 @@ class BookingController extends AdminController
         $form->text('services', __('Services'));
         $form->ckeditor('content', __('Content'));
         // $form->switch('status', __('Status'));
-        $form->select('status', __('Status'))->options(['' => 'Status','Active' => 'Active', 'Inactive' => 'Inactive']);
-
+     
         return $form;
     }
 }

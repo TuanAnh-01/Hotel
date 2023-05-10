@@ -11,7 +11,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use DB;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
@@ -32,7 +32,7 @@ class User extends Authenticatable
         'password',
         'facebook_id'
     ];
-
+    
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -62,6 +62,9 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
+    public function getPhotoUser()
+    {
+        return $this->hasMany(Comment::class, 'name', 'name');
+    }
     
 }

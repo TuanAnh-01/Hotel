@@ -48,9 +48,10 @@
                     <tbody>
                     @foreach($history as $h)
                         <tr>
+                            
                             <td>{{ $h->phone }}</td>
                             <td>{{ $h->name }}</td>
-                            <td>{{ $h->Price }}</td>
+                            <td>{{ $h->Price }}$</td>
                             <td>{{ $h->arrival }}</td>
                             <td>{{ $h->departure }}</td>
                             @if($h->paymentstatus == 'Wait for confirmation')

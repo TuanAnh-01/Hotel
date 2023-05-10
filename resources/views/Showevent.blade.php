@@ -121,7 +121,7 @@
                                                           <div class="row">
                                                               <div class="col-md-6">
                                                                   <div class="form-group input-not-empty">
-                                                                      <input class="form-control" type="text" name="email" value="{{$email->email}}" readonly>
+                                                                      <input class="form-control" type="text" name="email" value="{{ Auth::user()->email }}" readonly>
                                                                       {{-- <x-input id="email" type="email" class="form-control" wire:model.defer="state.email" autocomplete="username" /> --}}
                                                                       <span class="form-label">Email</span>
                                                                   </div>
@@ -190,7 +190,7 @@
                             <h3>{{$count}} Comments</h3>
                         @foreach($comment as $cmt)
                         <div class="blog__details__comment__item__pic">
-                            <img src="../images/Facebook.png" alt="">
+                            <img src="/storage/{{ $cmt->images }}" alt="">
                         </div>
                             <div class="blog__details__comment__item">
                                 <div class="blog__details__comment__item__text">
@@ -206,7 +206,7 @@
                             <h3>Leave A Comment</h3>
                             <form style="margin-bottom: 40px" action="{{ route('Event.createComment') }}" method="post">
                                 @csrf
-                                <input type="text" name="name_comment" value="{{$email->name}}" hidden>
+                                <input type="text" name="name_comment" value="{{ Auth::user()->name }}" hidden>
                                 <textarea name="comment" placeholder="Messages"></textarea>
                                 <button type="submit">Send Messages</button>
                             </form>

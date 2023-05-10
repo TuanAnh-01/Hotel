@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100);
             $table->text('content');
+            $table->text('images')->default('/profile-photos/Facebook.png');
             $table->integer('id_comment');
             $table->timestamps();
         });

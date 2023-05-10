@@ -48,17 +48,6 @@ class BookingController extends Controller
      */
     public function store()
     {
-        // $request->validate([
-        //     'arrival' => 'required',
-        //     'departure' => 'required',
-        //     'capacity' => 'required',
-        //     'phone' => 'required'
-        // ]);
-
-        // $arrival = Carbon::parse($request->arrival);
-        // $departure = Carbon::parse($request->departure);
-        // $date = $arrival->diffInDays($departure);
-
         $room = Booking::findOrFail(session('room_id'));
         $room->status = 'Inactive';
         $room->save();
@@ -87,10 +76,8 @@ class BookingController extends Controller
     public function show($id)
     {
         //
-        $sessions = DB::table('sessions')->value('user_id');
         $showroom = DB::table('booking')->find($id);
-        $email = DB::table('users')->find($sessions);
-        return view('showroom')->with('showroom',$showroom)->with('email',$email);
+        return view('showroom')->with('showroom',$showroom);
     }
 
     /**
